@@ -1,4 +1,4 @@
-import { useState } from 'react';
+// import { useState } from 'react';
 import '../App.css'
 import { useAuth } from '../contexts/AuthContext';
 import { setID, setUserData } from '../store/actions';
@@ -8,13 +8,15 @@ import { getUserData, getUserID } from "../firebase";
 
 function Home() {
   const dispatch = useDispatch();
-  const { currentUser, logout } = useAuth()
-  const [loading, setLoading] = useState(false);
+  const { currentUser, 
+    // logout 
+  } = useAuth()
+  // const [loading, setLoading] = useState(false);
 
 
-  const savedItems = useSelector(state => state.savedItems)
+  // const savedItems = useSelector(state => state.savedItems)
   const id = useSelector(state => state.userID)
-  const userData = useSelector(state => state.userData)
+  // const userData = useSelector(state => state.userData)
 
 
   getUserID(currentUser.email).then((userID) => {
@@ -26,11 +28,11 @@ function Home() {
   })
 
 
-  const handleLogout = () => {
-    setLoading(true)
-    logout()
-    setLoading(false)
-  }
+  // const handleLogout = () => {
+  //   setLoading(true)
+  //   logout()
+  //   setLoading(false)
+  // }
 
 
   return (
